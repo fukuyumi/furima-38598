@@ -62,3 +62,5 @@ has_one :order_address
 
 ### Association
 belong_to :order
+belong_to :user
+belong_to :item
