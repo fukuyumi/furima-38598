@@ -54,13 +54,11 @@ has_one :order_address
 |Column              |Type       |Options                       |
 |--------------------|-----------|------------------------------|
 | postal_code        | string    | null:false                   |
-| prefecture_id      | string    | null:false                   |
+| prefecture_id      | integer   | null:false                   |
 | city               | string    | null:false                   |
-| block              | integer   | null:false                   |
+| block              | string    | null:false                   |
 | building           | string    |                              |
 | phone_number       | string    | null:false                   |
-| oder_user          | reference | null:false, foreign_key:true |
-| oder_item          | reference | null:false, foreign_key:true |
 
 ### Association
 belong_to :order
