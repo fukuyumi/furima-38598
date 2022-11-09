@@ -43,6 +43,7 @@ has_one :order
 |---------------|-----------|------------------------------|
 | user          | reference | null:false, foreign_key:true |
 | item          | reference | null:false, foreign_key:true |
+| order_address | reference | null:false, foreign_key:true |
 
 ### Association
 belongs_to :user
