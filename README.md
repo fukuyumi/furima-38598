@@ -59,6 +59,7 @@ has_one :order_address
 | block              | string    | null:false                   |
 | building           | string    |                              |
 | phone_number       | string    | null:false                   |
+| order              | reference | null:false, foreign_key:true |
 
 ### Association
 belong_to :order
