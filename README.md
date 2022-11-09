@@ -21,17 +21,17 @@ has_many :orders
 
 ## items テーブル
 
-|Column              |Type       |Options                       |
-|--------------------|-----------|------------------------------|
-| item_name          | string    | null:false                   |
-| item_description   | text      | null:false                   |
-| category_id        | integer   | null:false                   |
-| item_status_id     | integer   | null:false                   |
-| ship_charge_id     | integer   | null:false                   |
-| prefecture_id      | integer   | null:false                   |
-| ship_date_id       | integer   | null:false                   |
-| price              | integer   | null:false                   |
-| user               | reference | null:false, foreign_key:true |
+|Column              |Type        |Options                       |
+|--------------------|------------|------------------------------|
+| item_name          | string     | null:false                   |
+| item_description   | text       | null:false                   |
+| category_id        | integer    | null:false                   |
+| item_status_id     | integer    | null:false                   |
+| ship_charge_id     | integer    | null:false                   |
+| prefecture_id      | integer    | null:false                   |
+| ship_date_id       | integer    | null:false                   |
+| price              | integer    | null:false                   |
+| user               | references | null:false, foreign_key:true |
 
 ### Association
 belongs_to :user
@@ -39,10 +39,10 @@ has_one :order
 
 ## orders テーブル
 
-|Column         |Type       |Options                       |
-|---------------|-----------|------------------------------|
-| user          | reference | null:false, foreign_key:true |
-| item          | reference | null:false, foreign_key:true |
+|Column         |Type        |Options                       |
+|---------------|------------|------------------------------|
+| user          | references | null:false, foreign_key:true |
+| item          | references | null:false, foreign_key:true |
 
 ### Association
 belongs_to :user
@@ -51,15 +51,15 @@ has_one :order_address
 
 ## order_addresses テーブル
 
-|Column              |Type       |Options                       |
-|--------------------|-----------|------------------------------|
-| postal_code        | string    | null:false                   |
-| prefecture_id      | integer   | null:false                   |
-| city               | string    | null:false                   |
-| block              | string    | null:false                   |
-| building           | string    |                              |
-| phone_number       | string    | null:false                   |
-| order              | reference | null:false, foreign_key:true |
+|Column              |Type        |Options                       |
+|--------------------|------------|------------------------------|
+| postal_code        | string     | null:false                   |
+| prefecture_id      | integer    | null:false                   |
+| city               | string     | null:false                   |
+| block              | string     | null:false                   |
+| building           | string     |                              |
+| phone_number       | string     | null:false                   |
+| order              | references | null:false, foreign_key:true |
 
 ### Association
 belong_to :order
