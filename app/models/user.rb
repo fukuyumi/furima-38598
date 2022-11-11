@@ -7,7 +7,7 @@ class User < ApplicationRecord
       validates :nickname,
         presence: true
       validates :encrypted_password,
-        format: { with: /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/},
+        format: { with:  /(?=.[a-zA-Z])(?=.\d)[a-zA-Z\d]{7,}/},
         presence: true
       validates :first_name,
         format: { with: /\A([ぁ-んァ-ン一-龥]|ー)+\z/},
