@@ -4,21 +4,26 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-    with_options presence: true do
-      validates :nickname
-      validates :birthday
-      validates :encrypted_password, format: {with: /(?=.[a-zA-Z])(?=.\d)[a-zA-Z\d]/}
-    
-     with_options format: {with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/} do
-        validates :first_name
-        validates :last_name
-     end
-    
-     with_options format: {with: /\A[ァ-ヶー－]+\z/} do
-       validates :first_name_kana
-       validates :last_name_kana
-     end
-    end
-  end
+      validates :nickname,
+        presence: true
+      validates :encrypted_password,
+        format: { with: /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/},
+        presence: true
+      validates :first_name,
+        format: { with: /\A([ぁ-んァ-ン一-龥]|ー)+\z/},
+        presence: true
+      validates :last_name,
+        format: { with: /\A([ぁ-んァ-ン一-龥]|ー)+\z/},
+        presence: true
+      validates :first_name_kana,
+        format: { with: /\A([ァ-ン]|ー)+\z/},
+        presence: true
+      validates :last_name_kana,
+        format: { with: /\A([ァ-ン]|ー)+\z/},
+        presence: true
+      validates :birthday,
+        presence: true
+
+end
 
 
