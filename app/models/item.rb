@@ -16,7 +16,7 @@ class Item < ApplicationRecord
     validates :ship_charge_id
     validates :prefecture_id
     validates :ship_date_id
-    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   end
 
   belongs_to :user
@@ -30,8 +30,6 @@ class Item < ApplicationRecord
   belongs_to :ship_date
 
   def was_attached?
-    self.image.attached?
+    image.attached?
   end
-
-
 end
