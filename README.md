@@ -47,9 +47,9 @@ has_one :order
 ### Association
 belongs_to :user
 belongs_to :item
-has_one :order_address
+has_one :address
 
-## order_addresses テーブル
+## addresses テーブル
 
 |Column              |Type        |Options                       |
 |--------------------|------------|------------------------------|
