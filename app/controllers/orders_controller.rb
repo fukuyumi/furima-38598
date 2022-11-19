@@ -16,11 +16,12 @@ class OrdersController < ApplicationController
       redirect_to root_path(@order_address)
     else
       render :new
+    end
   end
 
-private
+ private
 
-def order_params
-  params.require(:order_address).permit(:postal_code, :prefecture_id, :city, :block, :buliding, :phone_number).marge(user_id: current_user.id)
-end
+  def order_params
+    params.require(:order_address).permit(:postal_code, :prefecture_id, :city, :block, :buliding, :phone_number).marge(user_id: current_user.id)
+  end
 end
