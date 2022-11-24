@@ -26,7 +26,7 @@ RSpec.describe OrderAddress, type: :model do
       end
     end
     context '商品購入情報が保存できない場合' do
-      it 'user_idが空だと保存できない'do
+      it 'user_idが空だと保存できない' do
         @order_address.user_id = ''
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("User can't be blank")
@@ -64,7 +64,7 @@ RSpec.describe OrderAddress, type: :model do
       it 'phone_numderが12桁以上だと保存できない' do
         @order_address.phone_number = '090123412345'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number input oniy number")
+        expect(@order_address.errors.full_messages).to include('Phone number input oniy number')
       end
       it 'tokenが空だと保存できないこと' do
         @order_address.token = nil
