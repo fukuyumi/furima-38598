@@ -9,7 +9,7 @@ RSpec.describe OrderAddress, type: :model do
     end
 
     context '商品購入情報が保存できる場合' do
-      it 'user_id,item_id,postal_code,prefecture_id,city,block,phone_numberが存在すれば保存できる' do
+      it 'user_id,item_id,postal_code,prefecture_id,city,block,phone_number,tokenが存在すれば保存できる' do
         expect(@order_address).to be_valid
       end
       it 'postal_codeが「3桁+ハイフン+4桁」であれば保存できる' do
@@ -65,6 +65,11 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.phone_number = '090123412345'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Phone number input oniy number")
+      end
+      it 'tokenが空だと保存できないこと' do
+        @order_address.token = nil
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
