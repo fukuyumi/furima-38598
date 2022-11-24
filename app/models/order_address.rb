@@ -7,7 +7,7 @@ class OrderAddress
     validates :prefecture_id
     validates :city
     validates :block
-    validates :phone_number, format: { with: /\A[0-9]{11}\z/, message: 'input oniy number' }
+    validates :phone_number, format: { with: /\A[0-9]{10,11}\z/, message: 'input oniy number' }
     validates :user_id
     validates :item_id
     validates :token
