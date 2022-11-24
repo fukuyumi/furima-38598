@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if (login_user) && @item.order.nil?
+    if login_user && @item.order.nil?
     else
       redirect_to root_path
     end
@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy if (login_user)
+    @item.destroy if login_user
     redirect_to root_path
   end
 
@@ -56,6 +56,6 @@ class ItemsController < ApplicationController
   end
 
   def login_user
-     @item.user == current_user
+    @item.user == current_user
   end
 end
