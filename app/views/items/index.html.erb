@@ -144,7 +144,7 @@
           </div>
           <div class='item-info'>
             <h3 class='item-name'>
-              <%= item.item_name %>
+              <%= link_to item.item_name,item_path(item.id) %>
             </h3>
             <div class='item-price'>
               <span><%= item.price %>円<br><%= item.ship_charge.ship_charge %></span>
